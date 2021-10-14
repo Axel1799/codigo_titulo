@@ -1,18 +1,22 @@
 
 
 
-
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
 @font-face {
-  font-family: Rockwell;
-  src: url('../fonts/poppins/rockb.ttf'); 
+  font-family: Poppins-Regular;
+  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
 }
 
 @font-face {
-  font-family: Rockwell;
-  src: url('../fonts/poppins/rockb.ttf'); 
+  font-family: Poppins-Medium;
+  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
 }
 
 @font-face {
@@ -34,12 +38,12 @@
 
 body, html {
 	height: 100%;
-	font-family: Rockwell, sans-serif;
+	font-family: "Rockwell Bold", sans-serif;
 }
 
 /*---------------------------------------------*/
 a {
-	font-family: Rockwell;
+	font-family: Poppins-Regular;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -59,13 +63,22 @@ a:hover {
 	color: #57b846;
 }
 
+/*navbar*/
+.navbar-custom {
+  background-color: #ffffff;
+}
+
 /*---------------------------------------------*/
 h1,h2,h3,h4,h5,h6 {
+	font-family: Poppins-Regular;
+	font-size: 20px;
+	line-height: 1.7;
+	color: #666666;
 	margin: 0px;
 }
 
 p {
-	font-family: Rockwell;
+	font-family: Poppins-Regular;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -82,6 +95,8 @@ ul, li {
 input {
 	outline: none;
 	border: none;
+  font-weight: bold;
+  color: #000000;
 }
 
 textarea {
@@ -90,28 +105,28 @@ textarea {
 }
 
 textarea:focus, input:focus {
-  border-color: transparent !important;
+  border-color: black !important;
 }
 
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; }
-input:focus::-moz-placeholder { color:transparent; }
-input:focus:-ms-input-placeholder { color:transparent; }
+input:focus::-webkit-input-placeholder { color:black; }
+input:focus:-moz-placeholder { color:black; }
+input:focus::-moz-placeholder { color:black; }
+input:focus:-ms-input-placeholder { color:black; }
 
-textarea:focus::-webkit-input-placeholder { color:transparent; }
-textarea:focus:-moz-placeholder { color:transparent; }
-textarea:focus::-moz-placeholder { color:transparent; }
-textarea:focus:-ms-input-placeholder { color:transparent; }
+textarea:focus::-webkit-input-placeholder { color:black; }
+textarea:focus:-moz-placeholder { color:black; }
+textarea:focus::-moz-placeholder { color:black; }
+textarea:focus:-ms-input-placeholder { color:black; }
 
-input::-webkit-input-placeholder { color: #999999; }
-input:-moz-placeholder { color: #999999; }
-input::-moz-placeholder { color: #999999; }
-input:-ms-input-placeholder { color: #999999; }
+input::-webkit-input-placeholder { color: #000000; }
+input:-moz-placeholder { color: #000000; }
+input::-moz-placeholder { color: #000000; }
+input:-ms-input-placeholder { color: #000000; }
 
-textarea::-webkit-input-placeholder { color: #999999; }
-textarea:-moz-placeholder { color: #999999; }
-textarea::-moz-placeholder { color: #999999; }
-textarea:-ms-input-placeholder { color: #999999; }
+textarea::-webkit-input-placeholder { color: #000000; }
+textarea:-moz-placeholder { color: #000000; }
+textarea::-moz-placeholder { color: #000000; }
+textarea:-ms-input-placeholder { color: #000000; }
 
 /*---------------------------------------------*/
 button {
@@ -128,13 +143,6 @@ iframe {
 	border: none !important;
 }
 
-/*navbar*/
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
 
 
 
@@ -185,12 +193,31 @@ iframe {
 
 .contact2-form-title {
   display: block;
-  font-family: Rockwell;
+  font-family: Poppins-Bold;
   font-size: 39px;
   color: #333333;
   line-height: 1.2;
   text-align: center;
   padding-bottom: 90px;
+}
+
+
+.form-outline {
+  display: block;
+  font-family: Rockwell;
+  font-size: 20px;
+  color: #000000;
+  line-height: 1.2;
+  text-align: center;
+  padding-bottom: 90px;
+}
+
+#codigo_aut {
+  width: 100%;
+  height: 50%;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
 }
 
 
@@ -209,7 +236,7 @@ iframe {
   display: block;
   width: 100%;
 
-  font-family: Rockwell;
+  font-family: Poppins-Regular;
   font-size: 15px;
   color: #555555;
   line-height: 1.2;
@@ -253,8 +280,9 @@ iframe {
   position: absolute;
   top: 0px;
   left: 0;
+  font-weight: normal;
 
-  font-family: Rockwell;
+  font-family: Poppins-Regular;
   font-size: 13px;
   color: #999999;
   line-height: 1.2;
@@ -268,6 +296,7 @@ iframe {
 /*---------------------------------------------*/
 input.input2 {
   height: 45px;
+  font-weight: normal;
 }
 
 input.input2 + .focus-input2::after {
@@ -276,9 +305,11 @@ input.input2 + .focus-input2::after {
 }
 
 textarea.input2 {
-  min-height: 115px;
-  padding-top: 13px;
-  padding-bottom: 13px;
+  min-height: 20px;
+  padding-top: 15px;
+  padding-bottom: 8px;
+  display: block;
+  resize: none;
 }
 
 textarea.input2 + .focus-input2::after {
@@ -358,16 +389,12 @@ textarea.input2 + .focus-input2::after {
 
  
 
-  font-family: Rockwell;
+  font-family: Poppins-Medium;
   font-size: 16px;
   color: #fff;
   line-height: 1.2;
   
 
-}
-
-.wrap-contact2-form-btn:hover .contact2-form-bgbtn {
-  left: 0;
 }
 
 
@@ -389,7 +416,7 @@ textarea.input2 + .focus-input2::after {
 }
 
 .footer-distributed .footer-left p {
-  color: #8f9296;
+  color: #000000;
   font-size: 14px;
   margin: 0;
   align-content: center;
@@ -450,22 +477,9 @@ textarea.input2 + .focus-input2::after {
 
 .footer-distributed p.footer-links a:hover{text-decoration:underline;}
 
-/* Media Queries */
-
-@media (max-width: 600px) {
-  .footer-distributed .footer-left, .footer-distributed .footer-right {
-    text-align: center;
-  }
-  .footer-distributed .footer-right {
-    float: none;
-    margin: 0 auto 20px;
-  }
-  .footer-distributed .footer-left p.footer-links {
-    line-height: 1.8;
-  }
+.wrap-contact2-form-btn:hover .contact2-form-bgbtn {
+  left: 0;
 }
-
-
 
 /*------------------------------------------------------------------
 [ Responsive ]*/
@@ -476,13 +490,16 @@ textarea.input2 + .focus-input2::after {
   }
 }
 
+/*img*/
+
+.bg-contact2.style
 
 
 /*------------------------------------------------------------------
 [ Alert validate ]*/
 
 .validate-input {
-  position: relative;
+  position: inherit;
 }
 
 .alert-validate::before {
@@ -502,7 +519,7 @@ textarea.input2 + .focus-input2::after {
   right: 0px;
   pointer-events: none;
 
-  font-family: Rockwell;
+  font-family: Poppins-Regular;
   color: #c80000;
   font-size: 13px;
   line-height: 1.4;
@@ -519,7 +536,7 @@ textarea.input2 + .focus-input2::after {
 
 .alert-validate::after {
   content: "\f12a";
-  font-family: Rockwell;
+  font-family: FontAwesome;
   display: block;
   position: absolute;
   color: #c80000;
@@ -544,3 +561,4 @@ textarea.input2 + .focus-input2::after {
     opacity: 1;
   }
 }
+

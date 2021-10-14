@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 	<title>Títulos UNAE</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="images/icons/edu2.png" />
+	<link rel="icon" type="image/png" href="images/icons/mortarboard.png" />
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
@@ -23,9 +23,9 @@
 <body>
 	<!-- Image and text -->
 
-	<nav class="navbar navbar-light bg-light justify-content-center">
+	<nav class="navbar navbar-light justify-content-center navbar-custom">
 		<a class="navbar-brand" href="http://www.unae.edu.py/">
-			<img src="images/logo.png" width="220" height="65">
+			<img src="images/logo2.png" width="130" height="55">
 		</a>
 	</nav>
 
@@ -33,13 +33,13 @@
 	<div class="bg-contact2" style="background-image: url('images/universidad2.png');">
 		<div class="container-contact2">
 			<div class="wrap-contact2">
-				<form action="/titulos/index.php" method="POST" class="contact2-form validate-form">
+				<form action="/titulosa/search.php" method="POST" class="contact2-form validate-form">
 					<span class="contact2-form-title">
-						Buscar Título
+						Búsqueda de Título
 					</span>
-					<legend>Inserte el código del título</legend>
+					<h4 style="text-align: center;">Inserte el código del título</h4>
 					<div class="form-outline">
-						<input STYLE="text-transform:uppercase" type="search" id="codigo_aut" name="codigo_aut" class="form-control" required />
+						<input STYLE="text-transform:uppercase" width="30px" type="search" id="codigo_aut" name="codigo_aut" class="form-control" required />
 					</div>
 					<div class="container-contact2-form-btn">
 						<div class="wrap-contact2-form-btn">
@@ -65,7 +65,9 @@
 
 						$bu = $_POST["codigo_aut"];
 
-						$query = "SELECT egresado, ci, carrera, anio, serie FROM titulos WHERE codigo_aut LIKE '$bu'";
+						$query = "SELECT codigo_aut, egresado, ci, carrera, anio, serie FROM titulos WHERE codigo_aut LIKE '$bu'";
+
+						/*si el nombre continene un *, que muestre el mensaje de enie*/
 
 						
 
@@ -81,38 +83,46 @@
 								
 
 					?>
+								<p>El código <?= $finfo["codigo_aut"] ?> pertenece a: </p><br>
 								<div class="wrap-input2 validate-input" data-validate="Name is required">
 									<span class="focus-input2" data-placeholder="NOMBRE"></span><br>
-									<input class="input2" type="text" placeholder="<?= $finfo["egresado"] ?>" readonly>
+									<input class="input2" style="font-weight: bold" type="text" placeholder="<?= $finfo["egresado"] ?>" readonly>
 								</div>
 
 								<div class="wrap-input2 validate-input" data-validate="Name is required">
 									<span class="focus-input2" data-placeholder="CÉDULA"></span><br>
-									<input class="input2" type="text" placeholder="<?= $finfo["ci"] ?>" readonly>
+									<input class="input2" style="font-weight: bold" type="text" placeholder="<?= $finfo["ci"] ?>" readonly>
 								</div>
 
 								<div class="wrap-input2 validate-input" data-validate="Name is required">
 									<span class="focus-input2" data-placeholder="CARRERA"></span><br>
-									<input class="input2" type="text" placeholder="<?= $finfo["carrera"] ?>" readonly>
+									<input class="input2" style="font-weight: bold" type="text" placeholder="<?= $finfo["carrera"] ?>" readonly>
 								</div>
 
 								<div class="wrap-input2 validate-input" data-validate="Name is required">
 									<span class="focus-input2" data-placeholder="AÑO DE EGRESO"></span><br>
-									<input class="input2" type="text" placeholder="<?= $finfo["anio"] ?>" readonly>
+									<input class="input2" style="font-weight: bold" type="text" placeholder="<?= $finfo["anio"] ?>" readonly>
 								</div>
 
 								<div class="wrap-input2 validate-input" data-validate="Name is required">
 									<span class="focus-input2" data-placeholder="NÚMERO DE SERIE"></span><br>
-									<input class="input2" type="text" placeholder="<?= $finfo["serie"] ?>" readonly>
+									<input class="input2" style="font-weight: bold" type="text" placeholder="<?= $finfo["serie"] ?>" readonly>
 								</div>
 
+								<p>* Por razones de codificación SQL, puede que en el nombre del estudiante citado se muestre con caracteres anglosajones (N en vez de Ñ).</p>
+
+
+
+								
+
 					<?php
+								
 							
 							}
 						}else{ ?>
 							<div class="wrap-input2 validate-input" data-validate="Name is required">
-								<span class="focus-input2" data-placeholder="CÓDIGO"></span><br>
-								<input class="input2" type="text" placeholder="El código ingresado no corresponde a un egresado de la UNAE" readonly>
+								<br>
+								<p readonly>El código ingresado no corresponde a un egresado de la UNAE</p>
 							</div><?php
 						}
 							
