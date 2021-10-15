@@ -52,7 +52,7 @@
 
 						$query = "SELECT codigo_aut, egresado, ci, carrera, anio, serie FROM titulos WHERE codigo_aut LIKE '$bu'";
 						//$query2 = "SELECT ci, carrera, anio FROM titulos WHERE ci IN ( SELECT ci FROM titulos GROUP BY ci HAVING COUNT(*) > 1);";
-						$query2 = "SELECT ci, carrera, anio from titulos where ci = (SELECT ci FROM titulos WHERE codigo_aut LIKE '$bu')";
+						$query2 = "SELECT ci, carrera, anio from titulos where ci = (SELECT ci FROM titulos WHERE codigo_aut LIKE '$bu') ORDER BY anio ASC";
 
 						if ($result = mysqli_query($mysqli, $query)) {
 
@@ -94,6 +94,7 @@
 										<input class="input2" style="font-weight: bold" type="text" placeholder="<?= $finfo["serie"] ?>" readonly>
 									</div> 
 									
+									
 									<?php
 											if ($result = mysqli_query($mysqli, $query2)) {
 
@@ -106,7 +107,7 @@
 
 													while ($finfo = mysqli_fetch_assoc($result)) { ?>
 
-														<input class="input2" style="font-weight: bold" type="text" placeholder="- <?= $finfo["anio"], ", ", $finfo["carrera"] ?>" readonly>
+														<textarea class="input2" style="font-weight: bolder" type="text" placeholder="- <?= $finfo["anio"], ", ", $finfo["carrera"] ?>" readonly></textarea>
 
 												<?php }
 												}
