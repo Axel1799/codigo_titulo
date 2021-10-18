@@ -36,25 +36,24 @@
 						Búsqueda de Título
 					</span>
 					<?php
-
-					$mysqli = new mysqli("localhost", "root", "", "codigo_titulo");
-
-					/* verificar la conexión */
-					if (mysqli_connect_errno()) {
-						printf("Conexión fallida: %s\n", mysqli_connect_error());
-						exit();
-					}
-
+					require("data/db.php");
 					if (isset($_POST["codigo_aut"])) {
 
 						$bu = $_POST["codigo_aut"];
+						$save = htmlentities($bu);
+						// $sv = mysqli_real_escape_string($mysqli, $save);
 
 
-						$query = "SELECT codigo_aut, egresado, ci, carrera, anio, serie FROM titulos WHERE codigo_aut LIKE '$bu'";
+						$query = "SELECT codigo_aut, egresado, ci, carrera, anio, serie FROM titulos WHERE codigo_aut = '{$save}'";
 						//$query2 = "SELECT ci, carrera, anio FROM titulos WHERE ci IN ( SELECT ci FROM titulos GROUP BY ci HAVING COUNT(*) > 1);";
-						$query2 = "SELECT ci, carrera, anio from titulos where ci = (SELECT ci FROM titulos WHERE codigo_aut LIKE '$bu') ORDER BY anio ASC";
+						$query2 = "SELECT ci, carrera, anio from titulos where ci = (SELECT ci FROM titulos WHERE codigo_aut = '{$save}') ORDER BY anio ASC";
 
 						if ($result = mysqli_query($mysqli, $query)) {
+
+							if(!$result){
+								var_dump(mysqli_error($mysqli));
+								exit;
+							}
 
 							$row_count = mysqli_num_rows($result);
 

@@ -16,7 +16,7 @@
 	<script src="https://kit.fontawesome.com/85b07c1155.js" crossorigin="anonymous"></script>
 
 	<!-- footer resources -->
-	
+	<script async src='https://www.google.com/recaptcha/api.js?hl=es'></script>
 
 </head>
 
@@ -40,7 +40,7 @@
 					<h4 style="text-align: center;">Inserte el código del título</h4>
 					<div class="form-outline">
 						<input STYLE="text-transform:uppercase" width="30px" type="search" id="codigo_aut" name="codigo_aut" class="form-control" required />
-					</div>
+					</div>					
 					<div class="container-contact2-form-btn">
 						<div class="wrap-contact2-form-btn">
 							<div class="contact2-form-bgbtn"></div>
@@ -49,96 +49,6 @@
 							</button>
 						</div>
 					</div>
-					<br>
-
-					<?php
-
-					$mysqli = new mysqli("localhost", "root", "", "codigo_titulo");
-
-					/* verificar la conexión */
-					if (mysqli_connect_errno()) {
-						printf("Conexión fallida: %s\n", mysqli_connect_error());
-						exit();
-					}
-
-					if (isset($_POST["codigo_aut"])) {
-
-						$bu = $_POST["codigo_aut"];
-
-						$query = "SELECT codigo_aut, egresado, ci, carrera, anio, serie FROM titulos WHERE codigo_aut LIKE '$bu'";
-
-						/*si el nombre continene un *, que muestre el mensaje de enie*/
-
-						
-
-						if ($result = mysqli_query($mysqli, $query)) {
-
-							$row_count = mysqli_num_rows($result);
-
-							if($row_count > 0){
-
-							
-
-							while ($finfo = mysqli_fetch_assoc($result)) {
-								
-
-					?>
-								<p>El código <?= $finfo["codigo_aut"] ?> pertenece a: </p><br>
-								<div class="wrap-input2 validate-input" data-validate="Name is required">
-									<span class="focus-input2" data-placeholder="NOMBRE"></span><br>
-									<input class="input2" style="font-weight: bold" type="text" placeholder="<?= $finfo["egresado"] ?>" readonly>
-								</div>
-
-								<div class="wrap-input2 validate-input" data-validate="Name is required">
-									<span class="focus-input2" data-placeholder="CÉDULA"></span><br>
-									<input class="input2" style="font-weight: bold" type="text" placeholder="<?= $finfo["ci"] ?>" readonly>
-								</div>
-
-								<div class="wrap-input2 validate-input" data-validate="Name is required">
-									<span class="focus-input2" data-placeholder="CARRERA"></span><br>
-									<input class="input2" style="font-weight: bold" type="text" placeholder="<?= $finfo["carrera"] ?>" readonly>
-								</div>
-
-								<div class="wrap-input2 validate-input" data-validate="Name is required">
-									<span class="focus-input2" data-placeholder="AÑO DE EGRESO"></span><br>
-									<input class="input2" style="font-weight: bold" type="text" placeholder="<?= $finfo["anio"] ?>" readonly>
-								</div>
-
-								<div class="wrap-input2 validate-input" data-validate="Name is required">
-									<span class="focus-input2" data-placeholder="NÚMERO DE SERIE"></span><br>
-									<input class="input2" style="font-weight: bold" type="text" placeholder="<?= $finfo["serie"] ?>" readonly>
-								</div>
-
-								<p>* Por razones de codificación SQL, puede que en el nombre del estudiante citado se muestre con caracteres anglosajones (N en vez de Ñ).</p>
-
-
-
-								
-
-					<?php
-								
-							
-							}
-						}else{ ?>
-							<div class="wrap-input2 validate-input" data-validate="Name is required">
-								<br>
-								<p readonly>El código ingresado no corresponde a un egresado de la UNAE</p>
-							</div><?php
-						}
-							
-						}
-						
-						mysqli_free_result($result);
-						
-						
-						
-					}
-					
-
-
-					mysqli_close($mysqli);
-					?>
-
 				</form>
 			</div>
 		</div>

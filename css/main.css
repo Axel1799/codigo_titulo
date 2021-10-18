@@ -92,6 +92,7 @@ ul, li {
 }
 
 
+
 /*---------------------------------------------*/
 input {
 	outline: none;
@@ -170,10 +171,10 @@ iframe {
   align-items: center;
   padding: 15px;
   background: rgba(173, 13, 0, 1);
-  background: -webkit-linear-gradient(45deg, rgba(173, 13, 0, 1), rgba(255, 113, 111, 0.8));
-  background: -o-linear-gradient(45deg, rgba(173, 13, 0, 1), rgba(255, 113, 111, 0.8));
-  background: -moz-linear-gradient(45deg, rgba(173, 13, 0, 1), rgba(255, 113, 111, 0.8));
-  background: linear-gradient(45deg, rgba(173, 13, 0, 1), rgba(255, 113, 111, 0.8));
+  background: -webkit-linear-gradient(45deg, rgba(173, 13, 0, 1), rgba(255, 113, 111, 0.5));
+  background: -o-linear-gradient(45deg, rgba(173, 13, 0, 1), rgba(255, 113, 111, 0.5));
+  background: -moz-linear-gradient(45deg, rgba(173, 13, 0, 1), rgba(255, 113, 111, 0.5));
+  background: linear-gradient(45deg, rgba(173, 13, 0, 1), rgba(255, 113, 111, 0.5));
 }
 
 .wrap-contact2 {
@@ -229,7 +230,7 @@ iframe {
 .wrap-input2 {
   width: 100%;
   position: relative;
-  border-bottom: 2px solid #adadad;
+  border-bottom: 2px solid #e53935;
   margin-bottom: 37px;
 }
 
