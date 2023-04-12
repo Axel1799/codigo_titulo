@@ -31,7 +31,7 @@
 	<div class="bg-contact2" style="background-image: url('images/universidad2.png');">
 		<div class="container-contact2">
 			<div class="wrap-contact2">
-				<form action="/titulosa/" method="POST" class="contact2-form validate-form">
+				<form action="/titulos/codigo_titulo" method="POST" class="contact2-form validate-form">
 					<span class="contact2-form-title">
 						Búsqueda de Título
 					</span>
